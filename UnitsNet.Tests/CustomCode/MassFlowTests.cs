@@ -19,39 +19,64 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
+
+using System;
+
 namespace UnitsNet.Tests.CustomCode
 {
-    public class FlowTests : FlowTestsBase
+    public class MassFlowTests : MassFlowTestsBase
     {
-        protected override double CubicMetersPerHourInOneCubicMeterPerSecond
-        {
-            get { return 3600.0; }
-        }
-
-        protected override double CubicFeetPerSecondInOneCubicMeterPerSecond
-        {
-            get { return 35.314666213; }
-        }
-
-        protected override double MillionUsGallonsPerDayInOneCubicMeterPerSecond
-        {
-            get { return 22.824465227; }
-        }
-
-        protected override double CubicMetersPerSecondInOneCubicMeterPerSecond
+        protected override double GramsPerSecondInOneGramPerSecond
         {
             get { return 1; }
         }
 
-        protected override double UsGallonsPerMinuteInOneCubicMeterPerSecond
+        protected override double DecagramsPerSecondInOneGramPerSecond
         {
-            get { return 15850.323141489; }
+            get { return 1E-1; }
         }
 
-        protected override double LitersPerMinuteInOneCubicMeterPerSecond
+        protected override double HectogramsPerSecondInOneGramPerSecond
         {
-            get { return 60000.00000; }
+            get { return 1E-2; }
         }
 
+        protected override double KilogramsPerSecondInOneGramPerSecond
+        {
+            get { return 1E-3; }
+        }
+
+        protected override double DecigramsPerSecondInOneGramPerSecond
+        {
+            get { return 1E1; }
+        }
+
+        protected override double CentigramsPerSecondInOneGramPerSecond
+        {
+            get { return 1E2; }
+        }
+
+        protected override double MilligramsPerSecondInOneGramPerSecond
+        {
+            get { return 1E3; }
+        }
+
+        protected override double MicrogramsPerSecondInOneGramPerSecond
+        {
+            get { return 1E6; }
+        }
+
+        protected override double NanogramsPerSecondInOneGramPerSecond
+        {
+            get { return 1E9; }
+        }
+
+        protected override double TonnesPerDayInOneGramPerSecond
+        {
+            get
+            {
+                return (60.0 * 60 * 24 / 1E6);
+            }
+        }
     }
 }

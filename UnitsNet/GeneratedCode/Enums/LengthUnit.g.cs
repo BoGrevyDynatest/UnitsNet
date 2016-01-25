@@ -37,6 +37,7 @@ namespace UnitsNet.Units
         Mile,
         Millimeter,
         Nanometer,
+        NauticalMile,
         Yard,
     }
 }

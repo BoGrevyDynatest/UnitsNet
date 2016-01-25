@@ -32,264 +32,210 @@ using UnitsNet.Units;
 namespace UnitsNet
 {
     /// <summary>
-    ///     In everyday use and in kinematics, the speed of an object is the magnitude of its velocity (the rate of change of its position); it is thus a scalar quantity.[1] The average speed of an object in an interval of time is the distance travelled by the object divided by the duration of the interval;[2] the instantaneous speed is the limit of the average speed as the duration of the time interval approaches zero.
+    ///     Temperature change rate is the ratio of the temperature change to the time during which the change occurred (value of temperature changes per unit time).
     /// </summary>
     // ReSharper disable once PartialTypeWithSinglePart
-    public partial struct Speed : IComparable, IComparable<Speed>
+    public partial struct TemperatureChangeRate : IComparable, IComparable<TemperatureChangeRate>
     {
         /// <summary>
-        ///     Base unit of Speed.
+        ///     Base unit of TemperatureChangeRate.
         /// </summary>
-        private readonly double _metersPerSecond;
+        private readonly double _degreesCelsiusPerSecond;
 
-        public Speed(double meterspersecond) : this()
+        public TemperatureChangeRate(double degreescelsiuspersecond) : this()
         {
-            _metersPerSecond = meterspersecond;
+            _degreesCelsiusPerSecond = degreescelsiuspersecond;
         }
 
         #region Properties
 
-        public static SpeedUnit BaseUnit
+        public static TemperatureChangeRateUnit BaseUnit
         {
-            get { return SpeedUnit.MeterPerSecond; }
+            get { return TemperatureChangeRateUnit.DegreeCelsiusPerSecond; }
         }
 
         /// <summary>
-        ///     Get Speed in CentimetersPerSecond.
+        ///     Get TemperatureChangeRate in CentidegreesCelsiusPerSecond.
         /// </summary>
-        public double CentimetersPerSecond
+        public double CentidegreesCelsiusPerSecond
         {
-            get { return (_metersPerSecond) / 1e-2d; }
+            get { return (_degreesCelsiusPerSecond) / 1e-2d; }
         }
 
         /// <summary>
-        ///     Get Speed in DecimetersPerSecond.
+        ///     Get TemperatureChangeRate in DecadegreesCelsiusPerSecond.
         /// </summary>
-        public double DecimetersPerSecond
+        public double DecadegreesCelsiusPerSecond
         {
-            get { return (_metersPerSecond) / 1e-1d; }
+            get { return (_degreesCelsiusPerSecond) / 1e1d; }
         }
 
         /// <summary>
-        ///     Get Speed in FeetPerSecond.
+        ///     Get TemperatureChangeRate in DecidegreesCelsiusPerSecond.
         /// </summary>
-        public double FeetPerSecond
+        public double DecidegreesCelsiusPerSecond
         {
-            get { return _metersPerSecond/0.3048; }
+            get { return (_degreesCelsiusPerSecond) / 1e-1d; }
         }
 
         /// <summary>
-        ///     Get Speed in KilometersPerHour.
+        ///     Get TemperatureChangeRate in DegreesCelsiusPerSecond.
         /// </summary>
-        public double KilometersPerHour
+        public double DegreesCelsiusPerSecond
         {
-            get { return _metersPerSecond*3.6; }
+            get { return _degreesCelsiusPerSecond; }
         }
 
         /// <summary>
-        ///     Get Speed in KilometersPerSecond.
+        ///     Get TemperatureChangeRate in HectodegreesCelsiusPerSecond.
         /// </summary>
-        public double KilometersPerSecond
+        public double HectodegreesCelsiusPerSecond
         {
-            get { return (_metersPerSecond) / 1e3d; }
+            get { return (_degreesCelsiusPerSecond) / 1e2d; }
         }
 
         /// <summary>
-        ///     Get Speed in Knots.
+        ///     Get TemperatureChangeRate in KilodegreesCelsiusPerSecond.
         /// </summary>
-        public double Knots
+        public double KilodegreesCelsiusPerSecond
         {
-            get { return _metersPerSecond/0.514444; }
+            get { return (_degreesCelsiusPerSecond) / 1e3d; }
         }
 
         /// <summary>
-        ///     Get Speed in MetersPerHour.
+        ///     Get TemperatureChangeRate in MicrodegreesCelsiusPerSecond.
         /// </summary>
-        public double MetersPerHour
+        public double MicrodegreesCelsiusPerSecond
         {
-            get { return _metersPerSecond*3600; }
+            get { return (_degreesCelsiusPerSecond) / 1e-6d; }
         }
 
         /// <summary>
-        ///     Get Speed in MetersPerSecond.
+        ///     Get TemperatureChangeRate in MillidegreesCelsiusPerSecond.
         /// </summary>
-        public double MetersPerSecond
+        public double MillidegreesCelsiusPerSecond
         {
-            get { return _metersPerSecond; }
+            get { return (_degreesCelsiusPerSecond) / 1e-3d; }
         }
 
         /// <summary>
-        ///     Get Speed in MicrometersPerSecond.
+        ///     Get TemperatureChangeRate in NanodegreesCelsiusPerSecond.
         /// </summary>
-        public double MicrometersPerSecond
+        public double NanodegreesCelsiusPerSecond
         {
-            get { return (_metersPerSecond) / 1e-6d; }
-        }
-
-        /// <summary>
-        ///     Get Speed in MilesPerHour.
-        /// </summary>
-        public double MilesPerHour
-        {
-            get { return _metersPerSecond/0.44704; }
-        }
-
-        /// <summary>
-        ///     Get Speed in MillimetersPerSecond.
-        /// </summary>
-        public double MillimetersPerSecond
-        {
-            get { return (_metersPerSecond) / 1e-3d; }
-        }
-
-        /// <summary>
-        ///     Get Speed in NanometersPerSecond.
-        /// </summary>
-        public double NanometersPerSecond
-        {
-            get { return (_metersPerSecond) / 1e-9d; }
+            get { return (_degreesCelsiusPerSecond) / 1e-9d; }
         }
 
         #endregion
 
         #region Static 
 
-        public static Speed Zero
+        public static TemperatureChangeRate Zero
         {
-            get { return new Speed(); }
+            get { return new TemperatureChangeRate(); }
         }
 
         /// <summary>
-        ///     Get Speed from CentimetersPerSecond.
+        ///     Get TemperatureChangeRate from CentidegreesCelsiusPerSecond.
         /// </summary>
-        public static Speed FromCentimetersPerSecond(double centimeterspersecond)
+        public static TemperatureChangeRate FromCentidegreesCelsiusPerSecond(double centidegreescelsiuspersecond)
         {
-            return new Speed((centimeterspersecond) * 1e-2d);
+            return new TemperatureChangeRate((centidegreescelsiuspersecond) * 1e-2d);
         }
 
         /// <summary>
-        ///     Get Speed from DecimetersPerSecond.
+        ///     Get TemperatureChangeRate from DecadegreesCelsiusPerSecond.
         /// </summary>
-        public static Speed FromDecimetersPerSecond(double decimeterspersecond)
+        public static TemperatureChangeRate FromDecadegreesCelsiusPerSecond(double decadegreescelsiuspersecond)
         {
-            return new Speed((decimeterspersecond) * 1e-1d);
+            return new TemperatureChangeRate((decadegreescelsiuspersecond) * 1e1d);
         }
 
         /// <summary>
-        ///     Get Speed from FeetPerSecond.
+        ///     Get TemperatureChangeRate from DecidegreesCelsiusPerSecond.
         /// </summary>
-        public static Speed FromFeetPerSecond(double feetpersecond)
+        public static TemperatureChangeRate FromDecidegreesCelsiusPerSecond(double decidegreescelsiuspersecond)
         {
-            return new Speed(feetpersecond*0.3048);
+            return new TemperatureChangeRate((decidegreescelsiuspersecond) * 1e-1d);
         }
 
         /// <summary>
-        ///     Get Speed from KilometersPerHour.
+        ///     Get TemperatureChangeRate from DegreesCelsiusPerSecond.
         /// </summary>
-        public static Speed FromKilometersPerHour(double kilometersperhour)
+        public static TemperatureChangeRate FromDegreesCelsiusPerSecond(double degreescelsiuspersecond)
         {
-            return new Speed(kilometersperhour/3.6);
+            return new TemperatureChangeRate(degreescelsiuspersecond);
         }
 
         /// <summary>
-        ///     Get Speed from KilometersPerSecond.
+        ///     Get TemperatureChangeRate from HectodegreesCelsiusPerSecond.
         /// </summary>
-        public static Speed FromKilometersPerSecond(double kilometerspersecond)
+        public static TemperatureChangeRate FromHectodegreesCelsiusPerSecond(double hectodegreescelsiuspersecond)
         {
-            return new Speed((kilometerspersecond) * 1e3d);
+            return new TemperatureChangeRate((hectodegreescelsiuspersecond) * 1e2d);
         }
 
         /// <summary>
-        ///     Get Speed from Knots.
+        ///     Get TemperatureChangeRate from KilodegreesCelsiusPerSecond.
         /// </summary>
-        public static Speed FromKnots(double knots)
+        public static TemperatureChangeRate FromKilodegreesCelsiusPerSecond(double kilodegreescelsiuspersecond)
         {
-            return new Speed(knots*0.514444);
+            return new TemperatureChangeRate((kilodegreescelsiuspersecond) * 1e3d);
         }
 
         /// <summary>
-        ///     Get Speed from MetersPerHour.
+        ///     Get TemperatureChangeRate from MicrodegreesCelsiusPerSecond.
         /// </summary>
-        public static Speed FromMetersPerHour(double metersperhour)
+        public static TemperatureChangeRate FromMicrodegreesCelsiusPerSecond(double microdegreescelsiuspersecond)
         {
-            return new Speed(metersperhour/3600);
+            return new TemperatureChangeRate((microdegreescelsiuspersecond) * 1e-6d);
         }
 
         /// <summary>
-        ///     Get Speed from MetersPerSecond.
+        ///     Get TemperatureChangeRate from MillidegreesCelsiusPerSecond.
         /// </summary>
-        public static Speed FromMetersPerSecond(double meterspersecond)
+        public static TemperatureChangeRate FromMillidegreesCelsiusPerSecond(double millidegreescelsiuspersecond)
         {
-            return new Speed(meterspersecond);
+            return new TemperatureChangeRate((millidegreescelsiuspersecond) * 1e-3d);
         }
 
         /// <summary>
-        ///     Get Speed from MicrometersPerSecond.
+        ///     Get TemperatureChangeRate from NanodegreesCelsiusPerSecond.
         /// </summary>
-        public static Speed FromMicrometersPerSecond(double micrometerspersecond)
+        public static TemperatureChangeRate FromNanodegreesCelsiusPerSecond(double nanodegreescelsiuspersecond)
         {
-            return new Speed((micrometerspersecond) * 1e-6d);
-        }
-
-        /// <summary>
-        ///     Get Speed from MilesPerHour.
-        /// </summary>
-        public static Speed FromMilesPerHour(double milesperhour)
-        {
-            return new Speed(milesperhour*0.44704);
-        }
-
-        /// <summary>
-        ///     Get Speed from MillimetersPerSecond.
-        /// </summary>
-        public static Speed FromMillimetersPerSecond(double millimeterspersecond)
-        {
-            return new Speed((millimeterspersecond) * 1e-3d);
-        }
-
-        /// <summary>
-        ///     Get Speed from NanometersPerSecond.
-        /// </summary>
-        public static Speed FromNanometersPerSecond(double nanometerspersecond)
-        {
-            return new Speed((nanometerspersecond) * 1e-9d);
+            return new TemperatureChangeRate((nanodegreescelsiuspersecond) * 1e-9d);
         }
 
 
         /// <summary>
-        ///     Dynamically convert from value and unit enum <see cref="SpeedUnit" /> to <see cref="Speed" />.
+        ///     Dynamically convert from value and unit enum <see cref="TemperatureChangeRateUnit" /> to <see cref="TemperatureChangeRate" />.
         /// </summary>
         /// <param name="value">Value to convert from.</param>
         /// <param name="fromUnit">Unit to convert from.</param>
-        /// <returns>Speed unit value.</returns>
-        public static Speed From(double value, SpeedUnit fromUnit)
+        /// <returns>TemperatureChangeRate unit value.</returns>
+        public static TemperatureChangeRate From(double value, TemperatureChangeRateUnit fromUnit)
         {
             switch (fromUnit)
             {
-                case SpeedUnit.CentimeterPerSecond:
-                    return FromCentimetersPerSecond(value);
-                case SpeedUnit.DecimeterPerSecond:
-                    return FromDecimetersPerSecond(value);
-                case SpeedUnit.FootPerSecond:
-                    return FromFeetPerSecond(value);
-                case SpeedUnit.KilometerPerHour:
-                    return FromKilometersPerHour(value);
-                case SpeedUnit.KilometerPerSecond:
-                    return FromKilometersPerSecond(value);
-                case SpeedUnit.Knot:
-                    return FromKnots(value);
-                case SpeedUnit.MeterPerHour:
-                    return FromMetersPerHour(value);
-                case SpeedUnit.MeterPerSecond:
-                    return FromMetersPerSecond(value);
-                case SpeedUnit.MicrometerPerSecond:
-                    return FromMicrometersPerSecond(value);
-                case SpeedUnit.MilePerHour:
-                    return FromMilesPerHour(value);
-                case SpeedUnit.MillimeterPerSecond:
-                    return FromMillimetersPerSecond(value);
-                case SpeedUnit.NanometerPerSecond:
-                    return FromNanometersPerSecond(value);
+                case TemperatureChangeRateUnit.CentidegreeCelsiusPerSecond:
+                    return FromCentidegreesCelsiusPerSecond(value);
+                case TemperatureChangeRateUnit.DecadegreeCelsiusPerSecond:
+                    return FromDecadegreesCelsiusPerSecond(value);
+                case TemperatureChangeRateUnit.DecidegreeCelsiusPerSecond:
+                    return FromDecidegreesCelsiusPerSecond(value);
+                case TemperatureChangeRateUnit.DegreeCelsiusPerSecond:
+                    return FromDegreesCelsiusPerSecond(value);
+                case TemperatureChangeRateUnit.HectodegreeCelsiusPerSecond:
+                    return FromHectodegreesCelsiusPerSecond(value);
+                case TemperatureChangeRateUnit.KilodegreeCelsiusPerSecond:
+                    return FromKilodegreesCelsiusPerSecond(value);
+                case TemperatureChangeRateUnit.MicrodegreeCelsiusPerSecond:
+                    return FromMicrodegreesCelsiusPerSecond(value);
+                case TemperatureChangeRateUnit.MillidegreeCelsiusPerSecond:
+                    return FromMillidegreesCelsiusPerSecond(value);
+                case TemperatureChangeRateUnit.NanodegreeCelsiusPerSecond:
+                    return FromNanodegreesCelsiusPerSecond(value);
 
                 default:
                     throw new NotImplementedException("fromUnit: " + fromUnit);
@@ -303,7 +249,7 @@ namespace UnitsNet
         /// <param name="culture">Culture to use for localization. Defaults to Thread.CurrentUICulture.</param>
         /// <returns>Unit abbreviation string.</returns>
         [UsedImplicitly]
-        public static string GetAbbreviation(SpeedUnit unit, CultureInfo culture = null)
+        public static string GetAbbreviation(TemperatureChangeRateUnit unit, CultureInfo culture = null)
         {
             return UnitSystem.GetCached(culture).GetDefaultAbbreviation(unit);
         }
@@ -312,39 +258,39 @@ namespace UnitsNet
 
         #region Arithmetic Operators
 
-        public static Speed operator -(Speed right)
+        public static TemperatureChangeRate operator -(TemperatureChangeRate right)
         {
-            return new Speed(-right._metersPerSecond);
+            return new TemperatureChangeRate(-right._degreesCelsiusPerSecond);
         }
 
-        public static Speed operator +(Speed left, Speed right)
+        public static TemperatureChangeRate operator +(TemperatureChangeRate left, TemperatureChangeRate right)
         {
-            return new Speed(left._metersPerSecond + right._metersPerSecond);
+            return new TemperatureChangeRate(left._degreesCelsiusPerSecond + right._degreesCelsiusPerSecond);
         }
 
-        public static Speed operator -(Speed left, Speed right)
+        public static TemperatureChangeRate operator -(TemperatureChangeRate left, TemperatureChangeRate right)
         {
-            return new Speed(left._metersPerSecond - right._metersPerSecond);
+            return new TemperatureChangeRate(left._degreesCelsiusPerSecond - right._degreesCelsiusPerSecond);
         }
 
-        public static Speed operator *(double left, Speed right)
+        public static TemperatureChangeRate operator *(double left, TemperatureChangeRate right)
         {
-            return new Speed(left*right._metersPerSecond);
+            return new TemperatureChangeRate(left*right._degreesCelsiusPerSecond);
         }
 
-        public static Speed operator *(Speed left, double right)
+        public static TemperatureChangeRate operator *(TemperatureChangeRate left, double right)
         {
-            return new Speed(left._metersPerSecond*(double)right);
+            return new TemperatureChangeRate(left._degreesCelsiusPerSecond*(double)right);
         }
 
-        public static Speed operator /(Speed left, double right)
+        public static TemperatureChangeRate operator /(TemperatureChangeRate left, double right)
         {
-            return new Speed(left._metersPerSecond/(double)right);
+            return new TemperatureChangeRate(left._degreesCelsiusPerSecond/(double)right);
         }
 
-        public static double operator /(Speed left, Speed right)
+        public static double operator /(TemperatureChangeRate left, TemperatureChangeRate right)
         {
-            return Convert.ToDouble(left._metersPerSecond/right._metersPerSecond);
+            return Convert.ToDouble(left._degreesCelsiusPerSecond/right._degreesCelsiusPerSecond);
         }
 
         #endregion
@@ -354,45 +300,45 @@ namespace UnitsNet
         public int CompareTo(object obj)
         {
             if (obj == null) throw new ArgumentNullException("obj");
-            if (!(obj is Speed)) throw new ArgumentException("Expected type Speed.", "obj");
-            return CompareTo((Speed) obj);
+            if (!(obj is TemperatureChangeRate)) throw new ArgumentException("Expected type TemperatureChangeRate.", "obj");
+            return CompareTo((TemperatureChangeRate) obj);
         }
 
-        public int CompareTo(Speed other)
+        public int CompareTo(TemperatureChangeRate other)
         {
-            return _metersPerSecond.CompareTo(other._metersPerSecond);
+            return _degreesCelsiusPerSecond.CompareTo(other._degreesCelsiusPerSecond);
         }
 
-        public static bool operator <=(Speed left, Speed right)
+        public static bool operator <=(TemperatureChangeRate left, TemperatureChangeRate right)
         {
-            return left._metersPerSecond <= right._metersPerSecond;
+            return left._degreesCelsiusPerSecond <= right._degreesCelsiusPerSecond;
         }
 
-        public static bool operator >=(Speed left, Speed right)
+        public static bool operator >=(TemperatureChangeRate left, TemperatureChangeRate right)
         {
-            return left._metersPerSecond >= right._metersPerSecond;
+            return left._degreesCelsiusPerSecond >= right._degreesCelsiusPerSecond;
         }
 
-        public static bool operator <(Speed left, Speed right)
+        public static bool operator <(TemperatureChangeRate left, TemperatureChangeRate right)
         {
-            return left._metersPerSecond < right._metersPerSecond;
+            return left._degreesCelsiusPerSecond < right._degreesCelsiusPerSecond;
         }
 
-        public static bool operator >(Speed left, Speed right)
+        public static bool operator >(TemperatureChangeRate left, TemperatureChangeRate right)
         {
-            return left._metersPerSecond > right._metersPerSecond;
+            return left._degreesCelsiusPerSecond > right._degreesCelsiusPerSecond;
         }
 
-        public static bool operator ==(Speed left, Speed right)
-        {
-            // ReSharper disable once CompareOfFloatsByEqualityOperator
-            return left._metersPerSecond == right._metersPerSecond;
-        }
-
-        public static bool operator !=(Speed left, Speed right)
+        public static bool operator ==(TemperatureChangeRate left, TemperatureChangeRate right)
         {
             // ReSharper disable once CompareOfFloatsByEqualityOperator
-            return left._metersPerSecond != right._metersPerSecond;
+            return left._degreesCelsiusPerSecond == right._degreesCelsiusPerSecond;
+        }
+
+        public static bool operator !=(TemperatureChangeRate left, TemperatureChangeRate right)
+        {
+            // ReSharper disable once CompareOfFloatsByEqualityOperator
+            return left._degreesCelsiusPerSecond != right._degreesCelsiusPerSecond;
         }
 
         public override bool Equals(object obj)
@@ -402,12 +348,12 @@ namespace UnitsNet
                 return false;
             }
 
-            return _metersPerSecond.Equals(((Speed) obj)._metersPerSecond);
+            return _degreesCelsiusPerSecond.Equals(((TemperatureChangeRate) obj)._degreesCelsiusPerSecond);
         }
 
         public override int GetHashCode()
         {
-            return _metersPerSecond.GetHashCode();
+            return _degreesCelsiusPerSecond.GetHashCode();
         }
 
         #endregion
@@ -419,34 +365,28 @@ namespace UnitsNet
         /// </summary>
         /// <returns>Value in new unit if successful, exception otherwise.</returns>
         /// <exception cref="NotImplementedException">If conversion was not successful.</exception>
-        public double As(SpeedUnit unit)
+        public double As(TemperatureChangeRateUnit unit)
         {
             switch (unit)
             {
-                case SpeedUnit.CentimeterPerSecond:
-                    return CentimetersPerSecond;
-                case SpeedUnit.DecimeterPerSecond:
-                    return DecimetersPerSecond;
-                case SpeedUnit.FootPerSecond:
-                    return FeetPerSecond;
-                case SpeedUnit.KilometerPerHour:
-                    return KilometersPerHour;
-                case SpeedUnit.KilometerPerSecond:
-                    return KilometersPerSecond;
-                case SpeedUnit.Knot:
-                    return Knots;
-                case SpeedUnit.MeterPerHour:
-                    return MetersPerHour;
-                case SpeedUnit.MeterPerSecond:
-                    return MetersPerSecond;
-                case SpeedUnit.MicrometerPerSecond:
-                    return MicrometersPerSecond;
-                case SpeedUnit.MilePerHour:
-                    return MilesPerHour;
-                case SpeedUnit.MillimeterPerSecond:
-                    return MillimetersPerSecond;
-                case SpeedUnit.NanometerPerSecond:
-                    return NanometersPerSecond;
+                case TemperatureChangeRateUnit.CentidegreeCelsiusPerSecond:
+                    return CentidegreesCelsiusPerSecond;
+                case TemperatureChangeRateUnit.DecadegreeCelsiusPerSecond:
+                    return DecadegreesCelsiusPerSecond;
+                case TemperatureChangeRateUnit.DecidegreeCelsiusPerSecond:
+                    return DecidegreesCelsiusPerSecond;
+                case TemperatureChangeRateUnit.DegreeCelsiusPerSecond:
+                    return DegreesCelsiusPerSecond;
+                case TemperatureChangeRateUnit.HectodegreeCelsiusPerSecond:
+                    return HectodegreesCelsiusPerSecond;
+                case TemperatureChangeRateUnit.KilodegreeCelsiusPerSecond:
+                    return KilodegreesCelsiusPerSecond;
+                case TemperatureChangeRateUnit.MicrodegreeCelsiusPerSecond:
+                    return MicrodegreesCelsiusPerSecond;
+                case TemperatureChangeRateUnit.MillidegreeCelsiusPerSecond:
+                    return MillidegreesCelsiusPerSecond;
+                case TemperatureChangeRateUnit.NanodegreeCelsiusPerSecond:
+                    return NanodegreesCelsiusPerSecond;
 
                 default:
                     throw new NotImplementedException("unit: " + unit);
@@ -468,7 +408,7 @@ namespace UnitsNet
         ///     Expected string to have one or two pairs of quantity and unit in the format
         ///     "&lt;quantity&gt; &lt;unit&gt;". Eg. "5.5 m" or "1ft 2in" 
         /// </exception>
-        public static Speed Parse(string str, IFormatProvider formatProvider = null)
+        public static TemperatureChangeRate Parse(string str, IFormatProvider formatProvider = null)
         {
             if (str == null) throw new ArgumentNullException("str");
 
@@ -502,11 +442,11 @@ namespace UnitsNet
         ///     Parse a string given a particular regular expression.
         /// </summary>
         /// <exception cref="UnitsNetException">Error parsing string.</exception>
-        private static List<Speed> ParseWithRegex(string regexString, string str, IFormatProvider formatProvider = null)
+        private static List<TemperatureChangeRate> ParseWithRegex(string regexString, string str, IFormatProvider formatProvider = null)
         {
             var regex = new Regex(regexString);
             MatchCollection matches = regex.Matches(str.Trim());
-            var converted = new List<Speed>();
+            var converted = new List<TemperatureChangeRate>();
 
             foreach (Match match in matches)
             {
@@ -527,7 +467,7 @@ namespace UnitsNet
 
                 try
                 {
-                    SpeedUnit unit = ParseUnit(unitString, formatProvider);
+                    TemperatureChangeRateUnit unit = ParseUnit(unitString, formatProvider);
                     double value = double.Parse(valueString, formatProvider);
 
                     converted.Add(From(value, unit));
@@ -553,16 +493,16 @@ namespace UnitsNet
         /// </example>
         /// <exception cref="ArgumentNullException">The value of 'str' cannot be null. </exception>
         /// <exception cref="UnitsNetException">Error parsing string.</exception>
-        public static SpeedUnit ParseUnit(string str, IFormatProvider formatProvider = null)
+        public static TemperatureChangeRateUnit ParseUnit(string str, IFormatProvider formatProvider = null)
         {
             if (str == null) throw new ArgumentNullException("str");
             var unitSystem = UnitSystem.GetCached(formatProvider);
 
-            var unit = unitSystem.Parse<SpeedUnit>(str.Trim());
+            var unit = unitSystem.Parse<TemperatureChangeRateUnit>(str.Trim());
 
-            if (unit == SpeedUnit.Undefined)
+            if (unit == TemperatureChangeRateUnit.Undefined)
             {
-                var newEx = new UnitsNetException("Error parsing string. The unit is not a recognized SpeedUnit.");
+                var newEx = new UnitsNetException("Error parsing string. The unit is not a recognized TemperatureChangeRateUnit.");
                 newEx.Data["input"] = str;
                 newEx.Data["formatprovider"] = formatProvider == null ? null : formatProvider.ToString();
                 throw newEx;
@@ -579,7 +519,7 @@ namespace UnitsNet
         /// <returns>String representation.</returns>
         public override string ToString()
         {
-            return ToString(SpeedUnit.MeterPerSecond);
+            return ToString(TemperatureChangeRateUnit.DegreeCelsiusPerSecond);
         }
 
         /// <summary>
@@ -590,7 +530,7 @@ namespace UnitsNet
         /// <param name="significantDigitsAfterRadix">The number of significant digits after the radix point.</param>
         /// <returns>String representation.</returns>
         [UsedImplicitly]
-        public string ToString(SpeedUnit unit, CultureInfo culture = null, int significantDigitsAfterRadix = 2)
+        public string ToString(TemperatureChangeRateUnit unit, CultureInfo culture = null, int significantDigitsAfterRadix = 2)
         {
             return ToString(unit, culture, UnitFormatter.GetFormat(As(unit), significantDigitsAfterRadix));
         }
@@ -604,7 +544,7 @@ namespace UnitsNet
         /// <param name="args">Arguments for string format. Value and unit are implictly included as arguments 0 and 1.</param>
         /// <returns>String representation.</returns>
         [UsedImplicitly]
-        public string ToString(SpeedUnit unit, CultureInfo culture, string format, params object[] args)
+        public string ToString(TemperatureChangeRateUnit unit, CultureInfo culture, string format, params object[] args)
         {
             return string.Format(culture, format, UnitFormatter.GetFormatArgs(unit, As(unit), culture, args));
         }

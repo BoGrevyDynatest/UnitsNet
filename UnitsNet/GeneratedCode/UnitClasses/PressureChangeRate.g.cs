@@ -32,192 +32,120 @@ using UnitsNet.Units;
 namespace UnitsNet
 {
     /// <summary>
-    ///     Rotational speed (sometimes called speed of revolution) is the number of complete rotations, revolutions, cycles, or turns per time unit. Rotational speed is a cyclic frequency, measured in radians per second or in hertz in the SI System by scientists, or in revolutions per minute (rpm or min-1) or revolutions per second in everyday life. The symbol for rotational speed is ω (the Greek lowercase letter "omega").
+    ///     Pressure change rate is the ratio of the pressure change to the time during which the change occurred (value of pressure changes per unit time).
     /// </summary>
     // ReSharper disable once PartialTypeWithSinglePart
-    public partial struct RotationalSpeed : IComparable, IComparable<RotationalSpeed>
+    public partial struct PressureChangeRate : IComparable, IComparable<PressureChangeRate>
     {
         /// <summary>
-        ///     Base unit of RotationalSpeed.
+        ///     Base unit of PressureChangeRate.
         /// </summary>
-        private readonly double _radiansPerSecond;
+        private readonly double _pascalsPerSecond;
 
-        public RotationalSpeed(double radianspersecond) : this()
+        public PressureChangeRate(double pascalspersecond) : this()
         {
-            _radiansPerSecond = radianspersecond;
+            _pascalsPerSecond = pascalspersecond;
         }
 
         #region Properties
 
-        public static RotationalSpeedUnit BaseUnit
+        public static PressureChangeRateUnit BaseUnit
         {
-            get { return RotationalSpeedUnit.RadianPerSecond; }
+            get { return PressureChangeRateUnit.PascalPerSecond; }
         }
 
         /// <summary>
-        ///     Get RotationalSpeed in CentiradiansPerSecond.
+        ///     Get PressureChangeRate in AtmospheresPerSecond.
         /// </summary>
-        public double CentiradiansPerSecond
+        public double AtmospheresPerSecond
         {
-            get { return (_radiansPerSecond) / 1e-2d; }
+            get { return _pascalsPerSecond / (1.01325*1e5); }
         }
 
         /// <summary>
-        ///     Get RotationalSpeed in DeciradiansPerSecond.
+        ///     Get PressureChangeRate in KilopascalsPerSecond.
         /// </summary>
-        public double DeciradiansPerSecond
+        public double KilopascalsPerSecond
         {
-            get { return (_radiansPerSecond) / 1e-1d; }
+            get { return (_pascalsPerSecond) / 1e3d; }
         }
 
         /// <summary>
-        ///     Get RotationalSpeed in MicroradiansPerSecond.
+        ///     Get PressureChangeRate in MegapascalsPerSecond.
         /// </summary>
-        public double MicroradiansPerSecond
+        public double MegapascalsPerSecond
         {
-            get { return (_radiansPerSecond) / 1e-6d; }
+            get { return (_pascalsPerSecond) / 1e6d; }
         }
 
         /// <summary>
-        ///     Get RotationalSpeed in MilliradiansPerSecond.
+        ///     Get PressureChangeRate in PascalsPerSecond.
         /// </summary>
-        public double MilliradiansPerSecond
+        public double PascalsPerSecond
         {
-            get { return (_radiansPerSecond) / 1e-3d; }
-        }
-
-        /// <summary>
-        ///     Get RotationalSpeed in NanoradiansPerSecond.
-        /// </summary>
-        public double NanoradiansPerSecond
-        {
-            get { return (_radiansPerSecond) / 1e-9d; }
-        }
-
-        /// <summary>
-        ///     Get RotationalSpeed in RadiansPerSecond.
-        /// </summary>
-        public double RadiansPerSecond
-        {
-            get { return _radiansPerSecond; }
-        }
-
-        /// <summary>
-        ///     Get RotationalSpeed in RevolutionsPerMinute.
-        /// </summary>
-        public double RevolutionsPerMinute
-        {
-            get { return (_radiansPerSecond/6.2831853072)*60; }
-        }
-
-        /// <summary>
-        ///     Get RotationalSpeed in RevolutionsPerSecond.
-        /// </summary>
-        public double RevolutionsPerSecond
-        {
-            get { return _radiansPerSecond/6.2831853072; }
+            get { return _pascalsPerSecond; }
         }
 
         #endregion
 
         #region Static 
 
-        public static RotationalSpeed Zero
+        public static PressureChangeRate Zero
         {
-            get { return new RotationalSpeed(); }
+            get { return new PressureChangeRate(); }
         }
 
         /// <summary>
-        ///     Get RotationalSpeed from CentiradiansPerSecond.
+        ///     Get PressureChangeRate from AtmospheresPerSecond.
         /// </summary>
-        public static RotationalSpeed FromCentiradiansPerSecond(double centiradianspersecond)
+        public static PressureChangeRate FromAtmospheresPerSecond(double atmospherespersecond)
         {
-            return new RotationalSpeed((centiradianspersecond) * 1e-2d);
+            return new PressureChangeRate(atmospherespersecond * 1.01325*1e5);
         }
 
         /// <summary>
-        ///     Get RotationalSpeed from DeciradiansPerSecond.
+        ///     Get PressureChangeRate from KilopascalsPerSecond.
         /// </summary>
-        public static RotationalSpeed FromDeciradiansPerSecond(double deciradianspersecond)
+        public static PressureChangeRate FromKilopascalsPerSecond(double kilopascalspersecond)
         {
-            return new RotationalSpeed((deciradianspersecond) * 1e-1d);
+            return new PressureChangeRate((kilopascalspersecond) * 1e3d);
         }
 
         /// <summary>
-        ///     Get RotationalSpeed from MicroradiansPerSecond.
+        ///     Get PressureChangeRate from MegapascalsPerSecond.
         /// </summary>
-        public static RotationalSpeed FromMicroradiansPerSecond(double microradianspersecond)
+        public static PressureChangeRate FromMegapascalsPerSecond(double megapascalspersecond)
         {
-            return new RotationalSpeed((microradianspersecond) * 1e-6d);
+            return new PressureChangeRate((megapascalspersecond) * 1e6d);
         }
 
         /// <summary>
-        ///     Get RotationalSpeed from MilliradiansPerSecond.
+        ///     Get PressureChangeRate from PascalsPerSecond.
         /// </summary>
-        public static RotationalSpeed FromMilliradiansPerSecond(double milliradianspersecond)
+        public static PressureChangeRate FromPascalsPerSecond(double pascalspersecond)
         {
-            return new RotationalSpeed((milliradianspersecond) * 1e-3d);
-        }
-
-        /// <summary>
-        ///     Get RotationalSpeed from NanoradiansPerSecond.
-        /// </summary>
-        public static RotationalSpeed FromNanoradiansPerSecond(double nanoradianspersecond)
-        {
-            return new RotationalSpeed((nanoradianspersecond) * 1e-9d);
-        }
-
-        /// <summary>
-        ///     Get RotationalSpeed from RadiansPerSecond.
-        /// </summary>
-        public static RotationalSpeed FromRadiansPerSecond(double radianspersecond)
-        {
-            return new RotationalSpeed(radianspersecond);
-        }
-
-        /// <summary>
-        ///     Get RotationalSpeed from RevolutionsPerMinute.
-        /// </summary>
-        public static RotationalSpeed FromRevolutionsPerMinute(double revolutionsperminute)
-        {
-            return new RotationalSpeed((revolutionsperminute*6.2831853072)/60);
-        }
-
-        /// <summary>
-        ///     Get RotationalSpeed from RevolutionsPerSecond.
-        /// </summary>
-        public static RotationalSpeed FromRevolutionsPerSecond(double revolutionspersecond)
-        {
-            return new RotationalSpeed(revolutionspersecond*6.2831853072);
+            return new PressureChangeRate(pascalspersecond);
         }
 
 
         /// <summary>
-        ///     Dynamically convert from value and unit enum <see cref="RotationalSpeedUnit" /> to <see cref="RotationalSpeed" />.
+        ///     Dynamically convert from value and unit enum <see cref="PressureChangeRateUnit" /> to <see cref="PressureChangeRate" />.
         /// </summary>
         /// <param name="value">Value to convert from.</param>
         /// <param name="fromUnit">Unit to convert from.</param>
-        /// <returns>RotationalSpeed unit value.</returns>
-        public static RotationalSpeed From(double value, RotationalSpeedUnit fromUnit)
+        /// <returns>PressureChangeRate unit value.</returns>
+        public static PressureChangeRate From(double value, PressureChangeRateUnit fromUnit)
         {
             switch (fromUnit)
             {
-                case RotationalSpeedUnit.CentiradianPerSecond:
-                    return FromCentiradiansPerSecond(value);
-                case RotationalSpeedUnit.DeciradianPerSecond:
-                    return FromDeciradiansPerSecond(value);
-                case RotationalSpeedUnit.MicroradianPerSecond:
-                    return FromMicroradiansPerSecond(value);
-                case RotationalSpeedUnit.MilliradianPerSecond:
-                    return FromMilliradiansPerSecond(value);
-                case RotationalSpeedUnit.NanoradianPerSecond:
-                    return FromNanoradiansPerSecond(value);
-                case RotationalSpeedUnit.RadianPerSecond:
-                    return FromRadiansPerSecond(value);
-                case RotationalSpeedUnit.RevolutionPerMinute:
-                    return FromRevolutionsPerMinute(value);
-                case RotationalSpeedUnit.RevolutionPerSecond:
-                    return FromRevolutionsPerSecond(value);
+                case PressureChangeRateUnit.AtmospherePerSecond:
+                    return FromAtmospheresPerSecond(value);
+                case PressureChangeRateUnit.KilopascalPerSecond:
+                    return FromKilopascalsPerSecond(value);
+                case PressureChangeRateUnit.MegapascalPerSecond:
+                    return FromMegapascalsPerSecond(value);
+                case PressureChangeRateUnit.PascalPerSecond:
+                    return FromPascalsPerSecond(value);
 
                 default:
                     throw new NotImplementedException("fromUnit: " + fromUnit);
@@ -231,7 +159,7 @@ namespace UnitsNet
         /// <param name="culture">Culture to use for localization. Defaults to Thread.CurrentUICulture.</param>
         /// <returns>Unit abbreviation string.</returns>
         [UsedImplicitly]
-        public static string GetAbbreviation(RotationalSpeedUnit unit, CultureInfo culture = null)
+        public static string GetAbbreviation(PressureChangeRateUnit unit, CultureInfo culture = null)
         {
             return UnitSystem.GetCached(culture).GetDefaultAbbreviation(unit);
         }
@@ -240,39 +168,39 @@ namespace UnitsNet
 
         #region Arithmetic Operators
 
-        public static RotationalSpeed operator -(RotationalSpeed right)
+        public static PressureChangeRate operator -(PressureChangeRate right)
         {
-            return new RotationalSpeed(-right._radiansPerSecond);
+            return new PressureChangeRate(-right._pascalsPerSecond);
         }
 
-        public static RotationalSpeed operator +(RotationalSpeed left, RotationalSpeed right)
+        public static PressureChangeRate operator +(PressureChangeRate left, PressureChangeRate right)
         {
-            return new RotationalSpeed(left._radiansPerSecond + right._radiansPerSecond);
+            return new PressureChangeRate(left._pascalsPerSecond + right._pascalsPerSecond);
         }
 
-        public static RotationalSpeed operator -(RotationalSpeed left, RotationalSpeed right)
+        public static PressureChangeRate operator -(PressureChangeRate left, PressureChangeRate right)
         {
-            return new RotationalSpeed(left._radiansPerSecond - right._radiansPerSecond);
+            return new PressureChangeRate(left._pascalsPerSecond - right._pascalsPerSecond);
         }
 
-        public static RotationalSpeed operator *(double left, RotationalSpeed right)
+        public static PressureChangeRate operator *(double left, PressureChangeRate right)
         {
-            return new RotationalSpeed(left*right._radiansPerSecond);
+            return new PressureChangeRate(left*right._pascalsPerSecond);
         }
 
-        public static RotationalSpeed operator *(RotationalSpeed left, double right)
+        public static PressureChangeRate operator *(PressureChangeRate left, double right)
         {
-            return new RotationalSpeed(left._radiansPerSecond*(double)right);
+            return new PressureChangeRate(left._pascalsPerSecond*(double)right);
         }
 
-        public static RotationalSpeed operator /(RotationalSpeed left, double right)
+        public static PressureChangeRate operator /(PressureChangeRate left, double right)
         {
-            return new RotationalSpeed(left._radiansPerSecond/(double)right);
+            return new PressureChangeRate(left._pascalsPerSecond/(double)right);
         }
 
-        public static double operator /(RotationalSpeed left, RotationalSpeed right)
+        public static double operator /(PressureChangeRate left, PressureChangeRate right)
         {
-            return Convert.ToDouble(left._radiansPerSecond/right._radiansPerSecond);
+            return Convert.ToDouble(left._pascalsPerSecond/right._pascalsPerSecond);
         }
 
         #endregion
@@ -282,45 +210,45 @@ namespace UnitsNet
         public int CompareTo(object obj)
         {
             if (obj == null) throw new ArgumentNullException("obj");
-            if (!(obj is RotationalSpeed)) throw new ArgumentException("Expected type RotationalSpeed.", "obj");
-            return CompareTo((RotationalSpeed) obj);
+            if (!(obj is PressureChangeRate)) throw new ArgumentException("Expected type PressureChangeRate.", "obj");
+            return CompareTo((PressureChangeRate) obj);
         }
 
-        public int CompareTo(RotationalSpeed other)
+        public int CompareTo(PressureChangeRate other)
         {
-            return _radiansPerSecond.CompareTo(other._radiansPerSecond);
+            return _pascalsPerSecond.CompareTo(other._pascalsPerSecond);
         }
 
-        public static bool operator <=(RotationalSpeed left, RotationalSpeed right)
+        public static bool operator <=(PressureChangeRate left, PressureChangeRate right)
         {
-            return left._radiansPerSecond <= right._radiansPerSecond;
+            return left._pascalsPerSecond <= right._pascalsPerSecond;
         }
 
-        public static bool operator >=(RotationalSpeed left, RotationalSpeed right)
+        public static bool operator >=(PressureChangeRate left, PressureChangeRate right)
         {
-            return left._radiansPerSecond >= right._radiansPerSecond;
+            return left._pascalsPerSecond >= right._pascalsPerSecond;
         }
 
-        public static bool operator <(RotationalSpeed left, RotationalSpeed right)
+        public static bool operator <(PressureChangeRate left, PressureChangeRate right)
         {
-            return left._radiansPerSecond < right._radiansPerSecond;
+            return left._pascalsPerSecond < right._pascalsPerSecond;
         }
 
-        public static bool operator >(RotationalSpeed left, RotationalSpeed right)
+        public static bool operator >(PressureChangeRate left, PressureChangeRate right)
         {
-            return left._radiansPerSecond > right._radiansPerSecond;
+            return left._pascalsPerSecond > right._pascalsPerSecond;
         }
 
-        public static bool operator ==(RotationalSpeed left, RotationalSpeed right)
-        {
-            // ReSharper disable once CompareOfFloatsByEqualityOperator
-            return left._radiansPerSecond == right._radiansPerSecond;
-        }
-
-        public static bool operator !=(RotationalSpeed left, RotationalSpeed right)
+        public static bool operator ==(PressureChangeRate left, PressureChangeRate right)
         {
             // ReSharper disable once CompareOfFloatsByEqualityOperator
-            return left._radiansPerSecond != right._radiansPerSecond;
+            return left._pascalsPerSecond == right._pascalsPerSecond;
+        }
+
+        public static bool operator !=(PressureChangeRate left, PressureChangeRate right)
+        {
+            // ReSharper disable once CompareOfFloatsByEqualityOperator
+            return left._pascalsPerSecond != right._pascalsPerSecond;
         }
 
         public override bool Equals(object obj)
@@ -330,12 +258,12 @@ namespace UnitsNet
                 return false;
             }
 
-            return _radiansPerSecond.Equals(((RotationalSpeed) obj)._radiansPerSecond);
+            return _pascalsPerSecond.Equals(((PressureChangeRate) obj)._pascalsPerSecond);
         }
 
         public override int GetHashCode()
         {
-            return _radiansPerSecond.GetHashCode();
+            return _pascalsPerSecond.GetHashCode();
         }
 
         #endregion
@@ -347,26 +275,18 @@ namespace UnitsNet
         /// </summary>
         /// <returns>Value in new unit if successful, exception otherwise.</returns>
         /// <exception cref="NotImplementedException">If conversion was not successful.</exception>
-        public double As(RotationalSpeedUnit unit)
+        public double As(PressureChangeRateUnit unit)
         {
             switch (unit)
             {
-                case RotationalSpeedUnit.CentiradianPerSecond:
-                    return CentiradiansPerSecond;
-                case RotationalSpeedUnit.DeciradianPerSecond:
-                    return DeciradiansPerSecond;
-                case RotationalSpeedUnit.MicroradianPerSecond:
-                    return MicroradiansPerSecond;
-                case RotationalSpeedUnit.MilliradianPerSecond:
-                    return MilliradiansPerSecond;
-                case RotationalSpeedUnit.NanoradianPerSecond:
-                    return NanoradiansPerSecond;
-                case RotationalSpeedUnit.RadianPerSecond:
-                    return RadiansPerSecond;
-                case RotationalSpeedUnit.RevolutionPerMinute:
-                    return RevolutionsPerMinute;
-                case RotationalSpeedUnit.RevolutionPerSecond:
-                    return RevolutionsPerSecond;
+                case PressureChangeRateUnit.AtmospherePerSecond:
+                    return AtmospheresPerSecond;
+                case PressureChangeRateUnit.KilopascalPerSecond:
+                    return KilopascalsPerSecond;
+                case PressureChangeRateUnit.MegapascalPerSecond:
+                    return MegapascalsPerSecond;
+                case PressureChangeRateUnit.PascalPerSecond:
+                    return PascalsPerSecond;
 
                 default:
                     throw new NotImplementedException("unit: " + unit);
@@ -388,7 +308,7 @@ namespace UnitsNet
         ///     Expected string to have one or two pairs of quantity and unit in the format
         ///     "&lt;quantity&gt; &lt;unit&gt;". Eg. "5.5 m" or "1ft 2in" 
         /// </exception>
-        public static RotationalSpeed Parse(string str, IFormatProvider formatProvider = null)
+        public static PressureChangeRate Parse(string str, IFormatProvider formatProvider = null)
         {
             if (str == null) throw new ArgumentNullException("str");
 
@@ -422,11 +342,11 @@ namespace UnitsNet
         ///     Parse a string given a particular regular expression.
         /// </summary>
         /// <exception cref="UnitsNetException">Error parsing string.</exception>
-        private static List<RotationalSpeed> ParseWithRegex(string regexString, string str, IFormatProvider formatProvider = null)
+        private static List<PressureChangeRate> ParseWithRegex(string regexString, string str, IFormatProvider formatProvider = null)
         {
             var regex = new Regex(regexString);
             MatchCollection matches = regex.Matches(str.Trim());
-            var converted = new List<RotationalSpeed>();
+            var converted = new List<PressureChangeRate>();
 
             foreach (Match match in matches)
             {
@@ -447,7 +367,7 @@ namespace UnitsNet
 
                 try
                 {
-                    RotationalSpeedUnit unit = ParseUnit(unitString, formatProvider);
+                    PressureChangeRateUnit unit = ParseUnit(unitString, formatProvider);
                     double value = double.Parse(valueString, formatProvider);
 
                     converted.Add(From(value, unit));
@@ -473,16 +393,16 @@ namespace UnitsNet
         /// </example>
         /// <exception cref="ArgumentNullException">The value of 'str' cannot be null. </exception>
         /// <exception cref="UnitsNetException">Error parsing string.</exception>
-        public static RotationalSpeedUnit ParseUnit(string str, IFormatProvider formatProvider = null)
+        public static PressureChangeRateUnit ParseUnit(string str, IFormatProvider formatProvider = null)
         {
             if (str == null) throw new ArgumentNullException("str");
             var unitSystem = UnitSystem.GetCached(formatProvider);
 
-            var unit = unitSystem.Parse<RotationalSpeedUnit>(str.Trim());
+            var unit = unitSystem.Parse<PressureChangeRateUnit>(str.Trim());
 
-            if (unit == RotationalSpeedUnit.Undefined)
+            if (unit == PressureChangeRateUnit.Undefined)
             {
-                var newEx = new UnitsNetException("Error parsing string. The unit is not a recognized RotationalSpeedUnit.");
+                var newEx = new UnitsNetException("Error parsing string. The unit is not a recognized PressureChangeRateUnit.");
                 newEx.Data["input"] = str;
                 newEx.Data["formatprovider"] = formatProvider == null ? null : formatProvider.ToString();
                 throw newEx;
@@ -499,7 +419,7 @@ namespace UnitsNet
         /// <returns>String representation.</returns>
         public override string ToString()
         {
-            return ToString(RotationalSpeedUnit.RadianPerSecond);
+            return ToString(PressureChangeRateUnit.PascalPerSecond);
         }
 
         /// <summary>
@@ -510,7 +430,7 @@ namespace UnitsNet
         /// <param name="significantDigitsAfterRadix">The number of significant digits after the radix point.</param>
         /// <returns>String representation.</returns>
         [UsedImplicitly]
-        public string ToString(RotationalSpeedUnit unit, CultureInfo culture = null, int significantDigitsAfterRadix = 2)
+        public string ToString(PressureChangeRateUnit unit, CultureInfo culture = null, int significantDigitsAfterRadix = 2)
         {
             return ToString(unit, culture, UnitFormatter.GetFormat(As(unit), significantDigitsAfterRadix));
         }
@@ -524,7 +444,7 @@ namespace UnitsNet
         /// <param name="args">Arguments for string format. Value and unit are implictly included as arguments 0 and 1.</param>
         /// <returns>String representation.</returns>
         [UsedImplicitly]
-        public string ToString(RotationalSpeedUnit unit, CultureInfo culture, string format, params object[] args)
+        public string ToString(PressureChangeRateUnit unit, CultureInfo culture, string format, params object[] args)
         {
             return string.Format(culture, format, UnitFormatter.GetFormatArgs(unit, As(unit), culture, args));
         }

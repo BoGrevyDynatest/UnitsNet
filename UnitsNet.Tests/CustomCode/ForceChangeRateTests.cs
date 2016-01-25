@@ -19,39 +19,17 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
+
+using System;
+
 namespace UnitsNet.Tests.CustomCode
 {
-    public class FlowTests : FlowTestsBase
+    public class ForceChangeRateTests : ForceChangeRateTestsBase
     {
-        protected override double CubicMetersPerHourInOneCubicMeterPerSecond
-        {
-            get { return 3600.0; }
-        }
-
-        protected override double CubicFeetPerSecondInOneCubicMeterPerSecond
-        {
-            get { return 35.314666213; }
-        }
-
-        protected override double MillionUsGallonsPerDayInOneCubicMeterPerSecond
-        {
-            get { return 22.824465227; }
-        }
-
-        protected override double CubicMetersPerSecondInOneCubicMeterPerSecond
+        // TODO Override properties in base class here
+        protected override double NewtonsPerSecondInOneNewtonPerSecond
         {
             get { return 1; }
         }
-
-        protected override double UsGallonsPerMinuteInOneCubicMeterPerSecond
-        {
-            get { return 15850.323141489; }
-        }
-
-        protected override double LitersPerMinuteInOneCubicMeterPerSecond
-        {
-            get { return 60000.00000; }
-        }
-
     }
 }

@@ -19,51 +19,76 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
+
 using System;
 
 namespace UnitsNet.Tests.CustomCode
 {
-    public class RotationalSpeedTests : RotationalSpeedTestsBase
+    public class SpecificEnergyTests : SpecificEnergyTestsBase
     {
-
-        protected override double RadiansPerSecondInOneRadianPerSecond
+        protected override double JoulesPerKilogramInOneJoulePerKilogram
         {
-            get { return 1; }
+            get
+            {
+                return 1.0;
+            }
         }
 
-        protected override double DeciradiansPerSecondInOneRadianPerSecond
+        protected override double CaloriesPerGramInOneJoulePerKilogram
         {
-            get { return 1E1; }
+            get
+            {
+                return 1.0 / (4.184E3);
+            }
         }
 
-        protected override double CentiradiansPerSecondInOneRadianPerSecond
+        protected override double KilocaloriesPerGramInOneJoulePerKilogram
         {
-            get { return 1E2; }
+            get
+            {
+                return 1.0 / (4.184E6);
+            }
         }
 
-        protected override double MilliradiansPerSecondInOneRadianPerSecond
+
+        protected override double KilojoulesPerKilogramInOneJoulePerKilogram
         {
-            get { return 1E3; }
+            get
+            {
+                return 1.0E-3;
+            }
         }
 
-        protected override double MicroradiansPerSecondInOneRadianPerSecond
+        protected override double KilowattHoursPerKilogramInOneJoulePerKilogram
         {
-            get { return 1E6; }
+            get
+            {
+                return 2.77777778e-7;
+            }
         }
 
-        protected override double NanoradiansPerSecondInOneRadianPerSecond
+        protected override double MegajoulesPerKilogramInOneJoulePerKilogram
         {
-            get { return 1E9; }
+            get
+            {
+                return 1.0E-6;
+            }
         }
 
-        protected override double RevolutionsPerMinuteInOneRadianPerSecond
+        protected override double MegawattHoursPerKilogramInOneJoulePerKilogram
         {
-            get { return (60*1) / (2 * Math.PI); }
+            get
+            {
+                return 2.77777778E-10;
+            }
         }
 
-        protected override double RevolutionsPerSecondInOneRadianPerSecond
+        protected override double WattHoursPerKilogramInOneJoulePerKilogram
         {
-            get { return 1/(2*Math.PI); }
+            get
+            {
+                return 1.0 / 3.6e3;
+            }
         }
     }
 }

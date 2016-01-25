@@ -32,264 +32,228 @@ using UnitsNet.Units;
 namespace UnitsNet
 {
     /// <summary>
-    ///     In everyday use and in kinematics, the speed of an object is the magnitude of its velocity (the rate of change of its position); it is thus a scalar quantity.[1] The average speed of an object in an interval of time is the distance travelled by the object divided by the duration of the interval;[2] the instantaneous speed is the limit of the average speed as the duration of the time interval approaches zero.
+    ///     Mass flow is the ratio of the mass change to the time during which the change occurred (value of mass changes per unit time).
     /// </summary>
     // ReSharper disable once PartialTypeWithSinglePart
-    public partial struct Speed : IComparable, IComparable<Speed>
+    public partial struct MassFlow : IComparable, IComparable<MassFlow>
     {
         /// <summary>
-        ///     Base unit of Speed.
+        ///     Base unit of MassFlow.
         /// </summary>
-        private readonly double _metersPerSecond;
+        private readonly double _gramsPerSecond;
 
-        public Speed(double meterspersecond) : this()
+        public MassFlow(double gramspersecond) : this()
         {
-            _metersPerSecond = meterspersecond;
+            _gramsPerSecond = gramspersecond;
         }
 
         #region Properties
 
-        public static SpeedUnit BaseUnit
+        public static MassFlowUnit BaseUnit
         {
-            get { return SpeedUnit.MeterPerSecond; }
+            get { return MassFlowUnit.GramPerSecond; }
         }
 
         /// <summary>
-        ///     Get Speed in CentimetersPerSecond.
+        ///     Get MassFlow in CentigramsPerSecond.
         /// </summary>
-        public double CentimetersPerSecond
+        public double CentigramsPerSecond
         {
-            get { return (_metersPerSecond) / 1e-2d; }
+            get { return (_gramsPerSecond) / 1e-2d; }
         }
 
         /// <summary>
-        ///     Get Speed in DecimetersPerSecond.
+        ///     Get MassFlow in DecagramsPerSecond.
         /// </summary>
-        public double DecimetersPerSecond
+        public double DecagramsPerSecond
         {
-            get { return (_metersPerSecond) / 1e-1d; }
+            get { return (_gramsPerSecond) / 1e1d; }
         }
 
         /// <summary>
-        ///     Get Speed in FeetPerSecond.
+        ///     Get MassFlow in DecigramsPerSecond.
         /// </summary>
-        public double FeetPerSecond
+        public double DecigramsPerSecond
         {
-            get { return _metersPerSecond/0.3048; }
+            get { return (_gramsPerSecond) / 1e-1d; }
         }
 
         /// <summary>
-        ///     Get Speed in KilometersPerHour.
+        ///     Get MassFlow in GramsPerSecond.
         /// </summary>
-        public double KilometersPerHour
+        public double GramsPerSecond
         {
-            get { return _metersPerSecond*3.6; }
+            get { return _gramsPerSecond; }
         }
 
         /// <summary>
-        ///     Get Speed in KilometersPerSecond.
+        ///     Get MassFlow in HectogramsPerSecond.
         /// </summary>
-        public double KilometersPerSecond
+        public double HectogramsPerSecond
         {
-            get { return (_metersPerSecond) / 1e3d; }
+            get { return (_gramsPerSecond) / 1e2d; }
         }
 
         /// <summary>
-        ///     Get Speed in Knots.
+        ///     Get MassFlow in KilogramsPerSecond.
         /// </summary>
-        public double Knots
+        public double KilogramsPerSecond
         {
-            get { return _metersPerSecond/0.514444; }
+            get { return (_gramsPerSecond) / 1e3d; }
         }
 
         /// <summary>
-        ///     Get Speed in MetersPerHour.
+        ///     Get MassFlow in MicrogramsPerSecond.
         /// </summary>
-        public double MetersPerHour
+        public double MicrogramsPerSecond
         {
-            get { return _metersPerSecond*3600; }
+            get { return (_gramsPerSecond) / 1e-6d; }
         }
 
         /// <summary>
-        ///     Get Speed in MetersPerSecond.
+        ///     Get MassFlow in MilligramsPerSecond.
         /// </summary>
-        public double MetersPerSecond
+        public double MilligramsPerSecond
         {
-            get { return _metersPerSecond; }
+            get { return (_gramsPerSecond) / 1e-3d; }
         }
 
         /// <summary>
-        ///     Get Speed in MicrometersPerSecond.
+        ///     Get MassFlow in NanogramsPerSecond.
         /// </summary>
-        public double MicrometersPerSecond
+        public double NanogramsPerSecond
         {
-            get { return (_metersPerSecond) / 1e-6d; }
+            get { return (_gramsPerSecond) / 1e-9d; }
         }
 
         /// <summary>
-        ///     Get Speed in MilesPerHour.
+        ///     Get MassFlow in TonnesPerDay.
         /// </summary>
-        public double MilesPerHour
+        public double TonnesPerDay
         {
-            get { return _metersPerSecond/0.44704; }
-        }
-
-        /// <summary>
-        ///     Get Speed in MillimetersPerSecond.
-        /// </summary>
-        public double MillimetersPerSecond
-        {
-            get { return (_metersPerSecond) / 1e-3d; }
-        }
-
-        /// <summary>
-        ///     Get Speed in NanometersPerSecond.
-        /// </summary>
-        public double NanometersPerSecond
-        {
-            get { return (_metersPerSecond) / 1e-9d; }
+            get { return _gramsPerSecond*0.0864000; }
         }
 
         #endregion
 
         #region Static 
 
-        public static Speed Zero
+        public static MassFlow Zero
         {
-            get { return new Speed(); }
+            get { return new MassFlow(); }
         }
 
         /// <summary>
-        ///     Get Speed from CentimetersPerSecond.
+        ///     Get MassFlow from CentigramsPerSecond.
         /// </summary>
-        public static Speed FromCentimetersPerSecond(double centimeterspersecond)
+        public static MassFlow FromCentigramsPerSecond(double centigramspersecond)
         {
-            return new Speed((centimeterspersecond) * 1e-2d);
+            return new MassFlow((centigramspersecond) * 1e-2d);
         }
 
         /// <summary>
-        ///     Get Speed from DecimetersPerSecond.
+        ///     Get MassFlow from DecagramsPerSecond.
         /// </summary>
-        public static Speed FromDecimetersPerSecond(double decimeterspersecond)
+        public static MassFlow FromDecagramsPerSecond(double decagramspersecond)
         {
-            return new Speed((decimeterspersecond) * 1e-1d);
+            return new MassFlow((decagramspersecond) * 1e1d);
         }
 
         /// <summary>
-        ///     Get Speed from FeetPerSecond.
+        ///     Get MassFlow from DecigramsPerSecond.
         /// </summary>
-        public static Speed FromFeetPerSecond(double feetpersecond)
+        public static MassFlow FromDecigramsPerSecond(double decigramspersecond)
         {
-            return new Speed(feetpersecond*0.3048);
+            return new MassFlow((decigramspersecond) * 1e-1d);
         }
 
         /// <summary>
-        ///     Get Speed from KilometersPerHour.
+        ///     Get MassFlow from GramsPerSecond.
         /// </summary>
-        public static Speed FromKilometersPerHour(double kilometersperhour)
+        public static MassFlow FromGramsPerSecond(double gramspersecond)
         {
-            return new Speed(kilometersperhour/3.6);
+            return new MassFlow(gramspersecond);
         }
 
         /// <summary>
-        ///     Get Speed from KilometersPerSecond.
+        ///     Get MassFlow from HectogramsPerSecond.
         /// </summary>
-        public static Speed FromKilometersPerSecond(double kilometerspersecond)
+        public static MassFlow FromHectogramsPerSecond(double hectogramspersecond)
         {
-            return new Speed((kilometerspersecond) * 1e3d);
+            return new MassFlow((hectogramspersecond) * 1e2d);
         }
 
         /// <summary>
-        ///     Get Speed from Knots.
+        ///     Get MassFlow from KilogramsPerSecond.
         /// </summary>
-        public static Speed FromKnots(double knots)
+        public static MassFlow FromKilogramsPerSecond(double kilogramspersecond)
         {
-            return new Speed(knots*0.514444);
+            return new MassFlow((kilogramspersecond) * 1e3d);
         }
 
         /// <summary>
-        ///     Get Speed from MetersPerHour.
+        ///     Get MassFlow from MicrogramsPerSecond.
         /// </summary>
-        public static Speed FromMetersPerHour(double metersperhour)
+        public static MassFlow FromMicrogramsPerSecond(double microgramspersecond)
         {
-            return new Speed(metersperhour/3600);
+            return new MassFlow((microgramspersecond) * 1e-6d);
         }
 
         /// <summary>
-        ///     Get Speed from MetersPerSecond.
+        ///     Get MassFlow from MilligramsPerSecond.
         /// </summary>
-        public static Speed FromMetersPerSecond(double meterspersecond)
+        public static MassFlow FromMilligramsPerSecond(double milligramspersecond)
         {
-            return new Speed(meterspersecond);
+            return new MassFlow((milligramspersecond) * 1e-3d);
         }
 
         /// <summary>
-        ///     Get Speed from MicrometersPerSecond.
+        ///     Get MassFlow from NanogramsPerSecond.
         /// </summary>
-        public static Speed FromMicrometersPerSecond(double micrometerspersecond)
+        public static MassFlow FromNanogramsPerSecond(double nanogramspersecond)
         {
-            return new Speed((micrometerspersecond) * 1e-6d);
+            return new MassFlow((nanogramspersecond) * 1e-9d);
         }
 
         /// <summary>
-        ///     Get Speed from MilesPerHour.
+        ///     Get MassFlow from TonnesPerDay.
         /// </summary>
-        public static Speed FromMilesPerHour(double milesperhour)
+        public static MassFlow FromTonnesPerDay(double tonnesperday)
         {
-            return new Speed(milesperhour*0.44704);
-        }
-
-        /// <summary>
-        ///     Get Speed from MillimetersPerSecond.
-        /// </summary>
-        public static Speed FromMillimetersPerSecond(double millimeterspersecond)
-        {
-            return new Speed((millimeterspersecond) * 1e-3d);
-        }
-
-        /// <summary>
-        ///     Get Speed from NanometersPerSecond.
-        /// </summary>
-        public static Speed FromNanometersPerSecond(double nanometerspersecond)
-        {
-            return new Speed((nanometerspersecond) * 1e-9d);
+            return new MassFlow(tonnesperday/0.0864000);
         }
 
 
         /// <summary>
-        ///     Dynamically convert from value and unit enum <see cref="SpeedUnit" /> to <see cref="Speed" />.
+        ///     Dynamically convert from value and unit enum <see cref="MassFlowUnit" /> to <see cref="MassFlow" />.
         /// </summary>
         /// <param name="value">Value to convert from.</param>
         /// <param name="fromUnit">Unit to convert from.</param>
-        /// <returns>Speed unit value.</returns>
-        public static Speed From(double value, SpeedUnit fromUnit)
+        /// <returns>MassFlow unit value.</returns>
+        public static MassFlow From(double value, MassFlowUnit fromUnit)
         {
             switch (fromUnit)
             {
-                case SpeedUnit.CentimeterPerSecond:
-                    return FromCentimetersPerSecond(value);
-                case SpeedUnit.DecimeterPerSecond:
-                    return FromDecimetersPerSecond(value);
-                case SpeedUnit.FootPerSecond:
-                    return FromFeetPerSecond(value);
-                case SpeedUnit.KilometerPerHour:
-                    return FromKilometersPerHour(value);
-                case SpeedUnit.KilometerPerSecond:
-                    return FromKilometersPerSecond(value);
-                case SpeedUnit.Knot:
-                    return FromKnots(value);
-                case SpeedUnit.MeterPerHour:
-                    return FromMetersPerHour(value);
-                case SpeedUnit.MeterPerSecond:
-                    return FromMetersPerSecond(value);
-                case SpeedUnit.MicrometerPerSecond:
-                    return FromMicrometersPerSecond(value);
-                case SpeedUnit.MilePerHour:
-                    return FromMilesPerHour(value);
-                case SpeedUnit.MillimeterPerSecond:
-                    return FromMillimetersPerSecond(value);
-                case SpeedUnit.NanometerPerSecond:
-                    return FromNanometersPerSecond(value);
+                case MassFlowUnit.CentigramPerSecond:
+                    return FromCentigramsPerSecond(value);
+                case MassFlowUnit.DecagramPerSecond:
+                    return FromDecagramsPerSecond(value);
+                case MassFlowUnit.DecigramPerSecond:
+                    return FromDecigramsPerSecond(value);
+                case MassFlowUnit.GramPerSecond:
+                    return FromGramsPerSecond(value);
+                case MassFlowUnit.HectogramPerSecond:
+                    return FromHectogramsPerSecond(value);
+                case MassFlowUnit.KilogramPerSecond:
+                    return FromKilogramsPerSecond(value);
+                case MassFlowUnit.MicrogramPerSecond:
+                    return FromMicrogramsPerSecond(value);
+                case MassFlowUnit.MilligramPerSecond:
+                    return FromMilligramsPerSecond(value);
+                case MassFlowUnit.NanogramPerSecond:
+                    return FromNanogramsPerSecond(value);
+                case MassFlowUnit.TonnePerDay:
+                    return FromTonnesPerDay(value);
 
                 default:
                     throw new NotImplementedException("fromUnit: " + fromUnit);
@@ -303,7 +267,7 @@ namespace UnitsNet
         /// <param name="culture">Culture to use for localization. Defaults to Thread.CurrentUICulture.</param>
         /// <returns>Unit abbreviation string.</returns>
         [UsedImplicitly]
-        public static string GetAbbreviation(SpeedUnit unit, CultureInfo culture = null)
+        public static string GetAbbreviation(MassFlowUnit unit, CultureInfo culture = null)
         {
             return UnitSystem.GetCached(culture).GetDefaultAbbreviation(unit);
         }
@@ -312,39 +276,39 @@ namespace UnitsNet
 
         #region Arithmetic Operators
 
-        public static Speed operator -(Speed right)
+        public static MassFlow operator -(MassFlow right)
         {
-            return new Speed(-right._metersPerSecond);
+            return new MassFlow(-right._gramsPerSecond);
         }
 
-        public static Speed operator +(Speed left, Speed right)
+        public static MassFlow operator +(MassFlow left, MassFlow right)
         {
-            return new Speed(left._metersPerSecond + right._metersPerSecond);
+            return new MassFlow(left._gramsPerSecond + right._gramsPerSecond);
         }
 
-        public static Speed operator -(Speed left, Speed right)
+        public static MassFlow operator -(MassFlow left, MassFlow right)
         {
-            return new Speed(left._metersPerSecond - right._metersPerSecond);
+            return new MassFlow(left._gramsPerSecond - right._gramsPerSecond);
         }
 
-        public static Speed operator *(double left, Speed right)
+        public static MassFlow operator *(double left, MassFlow right)
         {
-            return new Speed(left*right._metersPerSecond);
+            return new MassFlow(left*right._gramsPerSecond);
         }
 
-        public static Speed operator *(Speed left, double right)
+        public static MassFlow operator *(MassFlow left, double right)
         {
-            return new Speed(left._metersPerSecond*(double)right);
+            return new MassFlow(left._gramsPerSecond*(double)right);
         }
 
-        public static Speed operator /(Speed left, double right)
+        public static MassFlow operator /(MassFlow left, double right)
         {
-            return new Speed(left._metersPerSecond/(double)right);
+            return new MassFlow(left._gramsPerSecond/(double)right);
         }
 
-        public static double operator /(Speed left, Speed right)
+        public static double operator /(MassFlow left, MassFlow right)
         {
-            return Convert.ToDouble(left._metersPerSecond/right._metersPerSecond);
+            return Convert.ToDouble(left._gramsPerSecond/right._gramsPerSecond);
         }
 
         #endregion
@@ -354,45 +318,45 @@ namespace UnitsNet
         public int CompareTo(object obj)
         {
             if (obj == null) throw new ArgumentNullException("obj");
-            if (!(obj is Speed)) throw new ArgumentException("Expected type Speed.", "obj");
-            return CompareTo((Speed) obj);
+            if (!(obj is MassFlow)) throw new ArgumentException("Expected type MassFlow.", "obj");
+            return CompareTo((MassFlow) obj);
         }
 
-        public int CompareTo(Speed other)
+        public int CompareTo(MassFlow other)
         {
-            return _metersPerSecond.CompareTo(other._metersPerSecond);
+            return _gramsPerSecond.CompareTo(other._gramsPerSecond);
         }
 
-        public static bool operator <=(Speed left, Speed right)
+        public static bool operator <=(MassFlow left, MassFlow right)
         {
-            return left._metersPerSecond <= right._metersPerSecond;
+            return left._gramsPerSecond <= right._gramsPerSecond;
         }
 
-        public static bool operator >=(Speed left, Speed right)
+        public static bool operator >=(MassFlow left, MassFlow right)
         {
-            return left._metersPerSecond >= right._metersPerSecond;
+            return left._gramsPerSecond >= right._gramsPerSecond;
         }
 
-        public static bool operator <(Speed left, Speed right)
+        public static bool operator <(MassFlow left, MassFlow right)
         {
-            return left._metersPerSecond < right._metersPerSecond;
+            return left._gramsPerSecond < right._gramsPerSecond;
         }
 
-        public static bool operator >(Speed left, Speed right)
+        public static bool operator >(MassFlow left, MassFlow right)
         {
-            return left._metersPerSecond > right._metersPerSecond;
+            return left._gramsPerSecond > right._gramsPerSecond;
         }
 
-        public static bool operator ==(Speed left, Speed right)
-        {
-            // ReSharper disable once CompareOfFloatsByEqualityOperator
-            return left._metersPerSecond == right._metersPerSecond;
-        }
-
-        public static bool operator !=(Speed left, Speed right)
+        public static bool operator ==(MassFlow left, MassFlow right)
         {
             // ReSharper disable once CompareOfFloatsByEqualityOperator
-            return left._metersPerSecond != right._metersPerSecond;
+            return left._gramsPerSecond == right._gramsPerSecond;
+        }
+
+        public static bool operator !=(MassFlow left, MassFlow right)
+        {
+            // ReSharper disable once CompareOfFloatsByEqualityOperator
+            return left._gramsPerSecond != right._gramsPerSecond;
         }
 
         public override bool Equals(object obj)
@@ -402,12 +366,12 @@ namespace UnitsNet
                 return false;
             }
 
-            return _metersPerSecond.Equals(((Speed) obj)._metersPerSecond);
+            return _gramsPerSecond.Equals(((MassFlow) obj)._gramsPerSecond);
         }
 
         public override int GetHashCode()
         {
-            return _metersPerSecond.GetHashCode();
+            return _gramsPerSecond.GetHashCode();
         }
 
         #endregion
@@ -419,34 +383,30 @@ namespace UnitsNet
         /// </summary>
         /// <returns>Value in new unit if successful, exception otherwise.</returns>
         /// <exception cref="NotImplementedException">If conversion was not successful.</exception>
-        public double As(SpeedUnit unit)
+        public double As(MassFlowUnit unit)
         {
             switch (unit)
             {
-                case SpeedUnit.CentimeterPerSecond:
-                    return CentimetersPerSecond;
-                case SpeedUnit.DecimeterPerSecond:
-                    return DecimetersPerSecond;
-                case SpeedUnit.FootPerSecond:
-                    return FeetPerSecond;
-                case SpeedUnit.KilometerPerHour:
-                    return KilometersPerHour;
-                case SpeedUnit.KilometerPerSecond:
-                    return KilometersPerSecond;
-                case SpeedUnit.Knot:
-                    return Knots;
-                case SpeedUnit.MeterPerHour:
-                    return MetersPerHour;
-                case SpeedUnit.MeterPerSecond:
-                    return MetersPerSecond;
-                case SpeedUnit.MicrometerPerSecond:
-                    return MicrometersPerSecond;
-                case SpeedUnit.MilePerHour:
-                    return MilesPerHour;
-                case SpeedUnit.MillimeterPerSecond:
-                    return MillimetersPerSecond;
-                case SpeedUnit.NanometerPerSecond:
-                    return NanometersPerSecond;
+                case MassFlowUnit.CentigramPerSecond:
+                    return CentigramsPerSecond;
+                case MassFlowUnit.DecagramPerSecond:
+                    return DecagramsPerSecond;
+                case MassFlowUnit.DecigramPerSecond:
+                    return DecigramsPerSecond;
+                case MassFlowUnit.GramPerSecond:
+                    return GramsPerSecond;
+                case MassFlowUnit.HectogramPerSecond:
+                    return HectogramsPerSecond;
+                case MassFlowUnit.KilogramPerSecond:
+                    return KilogramsPerSecond;
+                case MassFlowUnit.MicrogramPerSecond:
+                    return MicrogramsPerSecond;
+                case MassFlowUnit.MilligramPerSecond:
+                    return MilligramsPerSecond;
+                case MassFlowUnit.NanogramPerSecond:
+                    return NanogramsPerSecond;
+                case MassFlowUnit.TonnePerDay:
+                    return TonnesPerDay;
 
                 default:
                     throw new NotImplementedException("unit: " + unit);
@@ -468,7 +428,7 @@ namespace UnitsNet
         ///     Expected string to have one or two pairs of quantity and unit in the format
         ///     "&lt;quantity&gt; &lt;unit&gt;". Eg. "5.5 m" or "1ft 2in" 
         /// </exception>
-        public static Speed Parse(string str, IFormatProvider formatProvider = null)
+        public static MassFlow Parse(string str, IFormatProvider formatProvider = null)
         {
             if (str == null) throw new ArgumentNullException("str");
 
@@ -502,11 +462,11 @@ namespace UnitsNet
         ///     Parse a string given a particular regular expression.
         /// </summary>
         /// <exception cref="UnitsNetException">Error parsing string.</exception>
-        private static List<Speed> ParseWithRegex(string regexString, string str, IFormatProvider formatProvider = null)
+        private static List<MassFlow> ParseWithRegex(string regexString, string str, IFormatProvider formatProvider = null)
         {
             var regex = new Regex(regexString);
             MatchCollection matches = regex.Matches(str.Trim());
-            var converted = new List<Speed>();
+            var converted = new List<MassFlow>();
 
             foreach (Match match in matches)
             {
@@ -527,7 +487,7 @@ namespace UnitsNet
 
                 try
                 {
-                    SpeedUnit unit = ParseUnit(unitString, formatProvider);
+                    MassFlowUnit unit = ParseUnit(unitString, formatProvider);
                     double value = double.Parse(valueString, formatProvider);
 
                     converted.Add(From(value, unit));
@@ -553,16 +513,16 @@ namespace UnitsNet
         /// </example>
         /// <exception cref="ArgumentNullException">The value of 'str' cannot be null. </exception>
         /// <exception cref="UnitsNetException">Error parsing string.</exception>
-        public static SpeedUnit ParseUnit(string str, IFormatProvider formatProvider = null)
+        public static MassFlowUnit ParseUnit(string str, IFormatProvider formatProvider = null)
         {
             if (str == null) throw new ArgumentNullException("str");
             var unitSystem = UnitSystem.GetCached(formatProvider);
 
-            var unit = unitSystem.Parse<SpeedUnit>(str.Trim());
+            var unit = unitSystem.Parse<MassFlowUnit>(str.Trim());
 
-            if (unit == SpeedUnit.Undefined)
+            if (unit == MassFlowUnit.Undefined)
             {
-                var newEx = new UnitsNetException("Error parsing string. The unit is not a recognized SpeedUnit.");
+                var newEx = new UnitsNetException("Error parsing string. The unit is not a recognized MassFlowUnit.");
                 newEx.Data["input"] = str;
                 newEx.Data["formatprovider"] = formatProvider == null ? null : formatProvider.ToString();
                 throw newEx;
@@ -579,7 +539,7 @@ namespace UnitsNet
         /// <returns>String representation.</returns>
         public override string ToString()
         {
-            return ToString(SpeedUnit.MeterPerSecond);
+            return ToString(MassFlowUnit.GramPerSecond);
         }
 
         /// <summary>
@@ -590,7 +550,7 @@ namespace UnitsNet
         /// <param name="significantDigitsAfterRadix">The number of significant digits after the radix point.</param>
         /// <returns>String representation.</returns>
         [UsedImplicitly]
-        public string ToString(SpeedUnit unit, CultureInfo culture = null, int significantDigitsAfterRadix = 2)
+        public string ToString(MassFlowUnit unit, CultureInfo culture = null, int significantDigitsAfterRadix = 2)
         {
             return ToString(unit, culture, UnitFormatter.GetFormat(As(unit), significantDigitsAfterRadix));
         }
@@ -604,7 +564,7 @@ namespace UnitsNet
         /// <param name="args">Arguments for string format. Value and unit are implictly included as arguments 0 and 1.</param>
         /// <returns>String representation.</returns>
         [UsedImplicitly]
-        public string ToString(SpeedUnit unit, CultureInfo culture, string format, params object[] args)
+        public string ToString(MassFlowUnit unit, CultureInfo culture, string format, params object[] args)
         {
             return string.Format(culture, format, UnitFormatter.GetFormatArgs(unit, As(unit), culture, args));
         }

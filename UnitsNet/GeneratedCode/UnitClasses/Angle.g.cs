@@ -55,6 +55,38 @@ namespace UnitsNet
         }
 
         /// <summary>
+        ///     Get Angle in Arcminutes.
+        /// </summary>
+        public double Arcminutes
+        {
+            get { return _degrees*60; }
+        }
+
+        /// <summary>
+        ///     Get Angle in Arcseconds.
+        /// </summary>
+        public double Arcseconds
+        {
+            get { return _degrees*3600; }
+        }
+
+        /// <summary>
+        ///     Get Angle in Centiradians.
+        /// </summary>
+        public double Centiradians
+        {
+            get { return (_degrees/180*Math.PI) / 1e-2d; }
+        }
+
+        /// <summary>
+        ///     Get Angle in Deciradians.
+        /// </summary>
+        public double Deciradians
+        {
+            get { return (_degrees/180*Math.PI) / 1e-1d; }
+        }
+
+        /// <summary>
         ///     Get Angle in Degrees.
         /// </summary>
         public double Degrees
@@ -68,6 +100,30 @@ namespace UnitsNet
         public double Gradians
         {
             get { return _degrees/0.9; }
+        }
+
+        /// <summary>
+        ///     Get Angle in Microradians.
+        /// </summary>
+        public double Microradians
+        {
+            get { return (_degrees/180*Math.PI) / 1e-6d; }
+        }
+
+        /// <summary>
+        ///     Get Angle in Milliradians.
+        /// </summary>
+        public double Milliradians
+        {
+            get { return (_degrees/180*Math.PI) / 1e-3d; }
+        }
+
+        /// <summary>
+        ///     Get Angle in Nanoradians.
+        /// </summary>
+        public double Nanoradians
+        {
+            get { return (_degrees/180*Math.PI) / 1e-9d; }
         }
 
         /// <summary>
@@ -88,6 +144,38 @@ namespace UnitsNet
         }
 
         /// <summary>
+        ///     Get Angle from Arcminutes.
+        /// </summary>
+        public static Angle FromArcminutes(double arcminutes)
+        {
+            return new Angle(arcminutes/60);
+        }
+
+        /// <summary>
+        ///     Get Angle from Arcseconds.
+        /// </summary>
+        public static Angle FromArcseconds(double arcseconds)
+        {
+            return new Angle(arcseconds/3600);
+        }
+
+        /// <summary>
+        ///     Get Angle from Centiradians.
+        /// </summary>
+        public static Angle FromCentiradians(double centiradians)
+        {
+            return new Angle((centiradians*180/Math.PI) * 1e-2d);
+        }
+
+        /// <summary>
+        ///     Get Angle from Deciradians.
+        /// </summary>
+        public static Angle FromDeciradians(double deciradians)
+        {
+            return new Angle((deciradians*180/Math.PI) * 1e-1d);
+        }
+
+        /// <summary>
         ///     Get Angle from Degrees.
         /// </summary>
         public static Angle FromDegrees(double degrees)
@@ -101,6 +189,30 @@ namespace UnitsNet
         public static Angle FromGradians(double gradians)
         {
             return new Angle(gradians*0.9);
+        }
+
+        /// <summary>
+        ///     Get Angle from Microradians.
+        /// </summary>
+        public static Angle FromMicroradians(double microradians)
+        {
+            return new Angle((microradians*180/Math.PI) * 1e-6d);
+        }
+
+        /// <summary>
+        ///     Get Angle from Milliradians.
+        /// </summary>
+        public static Angle FromMilliradians(double milliradians)
+        {
+            return new Angle((milliradians*180/Math.PI) * 1e-3d);
+        }
+
+        /// <summary>
+        ///     Get Angle from Nanoradians.
+        /// </summary>
+        public static Angle FromNanoradians(double nanoradians)
+        {
+            return new Angle((nanoradians*180/Math.PI) * 1e-9d);
         }
 
         /// <summary>
@@ -122,10 +234,24 @@ namespace UnitsNet
         {
             switch (fromUnit)
             {
+                case AngleUnit.Arcminute:
+                    return FromArcminutes(value);
+                case AngleUnit.Arcsecond:
+                    return FromArcseconds(value);
+                case AngleUnit.Centiradian:
+                    return FromCentiradians(value);
+                case AngleUnit.Deciradian:
+                    return FromDeciradians(value);
                 case AngleUnit.Degree:
                     return FromDegrees(value);
                 case AngleUnit.Gradian:
                     return FromGradians(value);
+                case AngleUnit.Microradian:
+                    return FromMicroradians(value);
+                case AngleUnit.Milliradian:
+                    return FromMilliradians(value);
+                case AngleUnit.Nanoradian:
+                    return FromNanoradians(value);
                 case AngleUnit.Radian:
                     return FromRadians(value);
 
@@ -261,10 +387,24 @@ namespace UnitsNet
         {
             switch (unit)
             {
+                case AngleUnit.Arcminute:
+                    return Arcminutes;
+                case AngleUnit.Arcsecond:
+                    return Arcseconds;
+                case AngleUnit.Centiradian:
+                    return Centiradians;
+                case AngleUnit.Deciradian:
+                    return Deciradians;
                 case AngleUnit.Degree:
                     return Degrees;
                 case AngleUnit.Gradian:
                     return Gradians;
+                case AngleUnit.Microradian:
+                    return Microradians;
+                case AngleUnit.Milliradian:
+                    return Milliradians;
+                case AngleUnit.Nanoradian:
+                    return Nanoradians;
                 case AngleUnit.Radian:
                     return Radians;
 
